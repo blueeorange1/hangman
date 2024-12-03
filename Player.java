@@ -3,13 +3,11 @@ import java.util.Scanner;
 public class Player {
     Scanner usrInput = new Scanner(System.in);
 
-    public void go(String chosenWord) {
-        Game game = new Game();
+    public void guess(String chosenWord) {
 
-        char[] letters = chosenWord.toCharArray();
+        String charGuess = usrInput.nextLine();
+        while (Game.wrongGuesses < 7) {
 
-        for (int i = 0; i < letters.length; i++) {
-            System.out.println("Letter '" + letters[i] + "' is at position " + (i + 1));
         }
     }
 }

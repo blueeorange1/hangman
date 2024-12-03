@@ -11,17 +11,17 @@ public class Game {
             "  +---+\n  |   |\n  O   |\n /|\\  |\n      |\n      |\n=========",
             "  +---+\n  |   |\n  O   |\n /|\\  |\n /    |\n      |\n=========",
             "  +---+\n  |   |\n  O   |\n /|\\  |\n / \\  |\n      |\n=========" };
-    static String[] words = { "apple", "eighteen", "super", "candle", "river", "giraffe", "puzzle", "button", "lemon",
-            "rocket", "bicyle", "shadow", "jacket" };
+
+    public static int wrongGuesses = 0;
 
     public static void main(String[] args) {
-        String chosenWord = words[random.nextInt(13)];
-        System.out.println("Welcome to hangman. \n" + losingAskii[0] + "\n");
+        Phrase wordPicker = new Phrase();
+        System.out.println("Welcome to hangman. \n" + losingAskii[wrongGuesses] + "\n");
         System.out.print("Your word:  ");
-        for (int i = 0; i < chosenWord.length(); i++) {
+        for (int i = 0; i < wordPicker.chosenWord.length(); i++) {
             System.out.print("_ ");
         }
         System.out.println();
-        player.go(chosenWord);
+        player.guess(wordPicker.chosenWord);
     }
 }
