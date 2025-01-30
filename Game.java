@@ -16,11 +16,13 @@ public class Game {
 
     public static void main(String[] args) {
         Phrase wordPicker = new Phrase();
+        String blanks = "";
         System.out.println("Welcome to hangman. \n" + losingAskii[wrongGuesses] + "\n");
         System.out.print("Your word:  ");
         for (int i = 0; i < wordPicker.chosenWord.length(); i++) {
-            System.out.print("_ ");
+            blanks += "_ ";
         }
+        System.out.println(blanks);
         System.out.println();
         player.guess(wordPicker.chosenWord);
     }
