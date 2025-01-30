@@ -2,10 +2,15 @@ public class Phrase {
     private static String[] words = { "test" };
     public String chosenWord;
     Game game = new Game();
-    private int[] correctPos;
+    private int[] correctPos = new int[0];
+    private String[] currentState;
 
     public Phrase() {
         randomizeWord();
+        currentState = new String[chosenWord.length()];
+        for (int i = 0; i < chosenWord.length(); i++) {
+            currentState[i] = "_";
+        }
     }
 
     public void randomizeWord() {
@@ -13,7 +18,6 @@ public class Phrase {
     }
 
     public int[] checkGuess(String charGuess) {
-        correctPos = new int[0];
         int checkedLetters = 0;
         char[] letters = chosenWord.toCharArray();
 
@@ -23,12 +27,13 @@ public class Phrase {
             }
         }
 
+        correctPos = new int[checkedLetters];
         if (checkedLetters > 0) {
-            correctPos = new int[checkedLetters];
             int posIndex = 0;
             for (int i = 0; i < letters.length; i++) {
                 if (charGuess.equals(String.valueOf(letters[i]))) {
                     correctPos[posIndex] = i;
+                    currentState[i] = charGuess;
                     posIndex++;
                 }
             }
@@ -38,16 +43,6 @@ public class Phrase {
     }
 
     public String[] blankFill(String charGuess) {
-        String[] blanks = new String[chosenWord.length()];
-
-        for (int i = 0; i < chosenWord.length(); i++) {
-            blanks[i] = "_";
-        }
-
-        for (int pos : correctPos) { // Just learned this :)
-            blanks[pos] = charGuess;
-        }
-
-        return blanks;
+        return currentState;
     }
 }

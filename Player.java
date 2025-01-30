@@ -10,20 +10,24 @@ public class Player {
 
         while (Game.wrongGuesses < 7) {
             int[] positions = wordPicker.checkGuess(charGuess);
+            String[] currentDisplay = wordPicker.blankFill(charGuess);
 
             if (positions.length > 0) {
                 System.out.println("Correct guess!");
 
-            } else {
+            } else if (Game.wrongGuesses < 5) {
                 System.out.println("Wrong guess!");
                 Game.wrongGuesses++;
                 System.out.println(Game.losingAskii[Game.wrongGuesses]);
+            } else {
+                System.out.println(Game.losingAskii[6]);
+                System.out.println("Game ovr! The word was: " + chosenWord);
+                break;
             }
+            System.out.println("Word: " + String.join(" ", currentDisplay)); // This is slick
 
-            if (Game.wrongGuesses < 7) {
-                System.out.println("Guess a letter: ");
-                charGuess = usrInput.nextLine();
-            }
+            System.out.println("Guess a letter: ");
+            charGuess = usrInput.nextLine();
         }
     }
 }

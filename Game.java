@@ -19,10 +19,8 @@ public class Game {
         String blanks = "";
         System.out.println("Welcome to hangman. \n" + losingAskii[wrongGuesses] + "\n");
         System.out.print("Your word:  ");
-        for (int i = 0; i < wordPicker.chosenWord.length(); i++) {
-            blanks += "_ ";
-        }
-        System.out.println(blanks);
+        String[] initialState = wordPicker.blankFill("");
+        System.out.println(String.join(" ", initialState));
         System.out.println();
         player.guess(wordPicker.chosenWord);
     }
