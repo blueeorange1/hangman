@@ -1,5 +1,24 @@
 public class Phrase {
-    private static String[] words = { "test" };
+    private static String[] words = { "apple",
+            "beach",
+            "cloud",
+            "dance",
+            "eagle",
+            "flute",
+            "grape",
+            "house",
+            "igloo",
+            "joker",
+            "koala",
+            "lemon",
+            "maple",
+            "night",
+            "orbit",
+            "pizza",
+            "queen",
+            "river",
+            "storm",
+            "tiger" };
     public String chosenWord;
     Game game = new Game();
     private int[] correctPos = new int[0];
