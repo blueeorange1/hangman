@@ -1,10 +1,8 @@
 public class Phrase {
-    private static String[] words = { "test" };// { "apple", "eighteen", "super", "candle", "river", "giraffe",
-                                               // "puzzle",
-    // "button",
-    // "lemon","rocket","bicyle","shadow","jacket","wry","jazz","jinx","buzz","fizz","fuzzy","jumpy","jumbo",};
+    private static String[] words = { "test" };
     public String chosenWord;
     Game game = new Game();
+    private int[] correctPos;
 
     public Phrase() {
         randomizeWord();
@@ -15,7 +13,7 @@ public class Phrase {
     }
 
     public int[] checkGuess(String charGuess) {
-        int[] correctPos = new int[0];
+        correctPos = new int[0];
         int checkedLetters = 0;
         char[] letters = chosenWord.toCharArray();
 
@@ -37,5 +35,19 @@ public class Phrase {
         }
 
         return correctPos;
+    }
+
+    public String[] blankFill(String charGuess) {
+        String[] blanks = new String[chosenWord.length()];
+
+        for (int i = 0; i < chosenWord.length(); i++) {
+            blanks[i] = "_";
+        }
+
+        for (int pos : correctPos) { // Just learned this :)
+            blanks[pos] = charGuess;
+        }
+
+        return blanks;
     }
 }

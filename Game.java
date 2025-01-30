@@ -26,4 +26,5 @@ public class Game {
         System.out.println();
         player.guess(wordPicker.chosenWord);
     }
+
 }

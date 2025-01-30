@@ -13,7 +13,7 @@ public class Player {
 
             if (positions.length > 0) {
                 System.out.println("Correct guess!");
-                // Add correct guess
+
             } else {
                 System.out.println("Wrong guess!");
                 Game.wrongGuesses++;
